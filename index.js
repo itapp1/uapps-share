@@ -10,7 +10,7 @@ app.set('view engine','hbs');
 
 app.use('/share', shareRouter);
 
-let PORT = 3000;
+let PORT = 5000;
 app.listen(PORT, ()=>{
     console.log('Server Berjalan di Port : '+PORT+'...');
 });

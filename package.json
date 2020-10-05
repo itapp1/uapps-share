@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "Hello world"
+    "test": "Hello world",
+    "start": "node index.js"
   },
   "author": "Zeldianto EP",
   "license": "ISC",
