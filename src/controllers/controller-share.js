@@ -29,7 +29,7 @@ module.exports ={
             urlRedirect : urlRedirect+id,
             urlImage : urlImage+id+'[0].png',
             titleProduct : 'FOX Lem Banteng KW 1',
-            descriptionProduct : 'Fox Lem Banteng Kualitas KW 1 Harga boleh di adu.'
+            descriptionProduct : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
         });
     },
     shareWithDB(req,res){
