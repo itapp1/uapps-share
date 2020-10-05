@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const loginRoutes = require('./src/routes/router-login');
+// const loginRoutes = require('./src/routes/router-login');
 
 app.use('/login', loginRoutes);
 
