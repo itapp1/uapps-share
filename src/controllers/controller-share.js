@@ -1,14 +1,16 @@
 
 module.exports ={
     shareWithoutDB(req,res){
-       res.render('shareWithoutDB',{
+        let id = req.params.id;
+        res.render('shareWithoutDB',{
             textDisplay: 'Please wait ...',
             url: 'http://localhost:3000/',
-            urlRedirect : 'https://sales.uapps.id/products/detail/100473',
-            urlImage : 'https://sales.uapps.id/assets/image/SENTRALTUKANG/detail/100473[0].png'
-       });
+            urlRedirect : `https://sales.uapps.id/products/detail/${id}`,
+            urlImage : `https://sales.uapps.id/assets/image/SENTRALTUKANG/detail/${id}[0].png`,
+        });
     },
     shareWithDB(req,res){
-        console.log('Halo');
+        let id = req.params.id;
+        console.log(id);
     }
 }
