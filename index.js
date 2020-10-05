@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 
-// const loginRoutes = require('./src/routes/router-login');
+const shareRouter = require('./src/routes/router-share');
 
-// app.use('/login', loginRoutes);
+app.use('/share', shareRouter);
 
 let PORT = 3000;
 app.listen(PORT, ()=>{
