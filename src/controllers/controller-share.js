@@ -1,12 +1,33 @@
 
+require('dotenv').config();
+const { 
+    NODE_ENV,
+    URL_HOST_PRO,
+    URL_HOST_DEV,
+    URL_FRONT_PRO,
+    URL_FRONT_DEV,
+    URL_IMAGE_PRO,
+    URL_IMAGE_DEV
+} = process.env;
+
+let url;
+if (NODE_ENV === 'production') {
+    url = URL_HOST_PRO
+    urlRedirect = URL_FRONT_PRO
+    urlImage = URL_IMAGE_PRO
+} else {
+    url = URL_HOST_DEV
+    urlRedirect = URL_FRONT_DEV
+    urlImage = URL_IMAGE_DEV
+}
 module.exports ={
     shareWithoutDB(req,res){
         let id = req.params.id;
         res.render('share-without-db',{
             textDisplay: 'Please wait ...',
-            url: 'http://localhost:3000/',
-            urlRedirect : `https://sales.uapps.id/products/detail/${id}`,
-            urlImage : `https://sales.uapps.id/assets/image/SENTRALTUKANG/detail/${id}[0].png`,
+            url: url,
+            urlRedirect : urlRedirect+id,
+            urlImage : urlImage+id+'[0].png',
             titleProduct : 'FOX Lem Banteng KW 1',
             descriptionProduct : 'Fox Lem Banteng Kualitas KW 1 Harga boleh di adu.'
         });
