@@ -1,7 +1,9 @@
 
 module.exports ={
     shareWithoutDB(req,res){
-        console.log('Halo');
+       res.render('shareWithoutDB',{
+            title: 'Halo'
+       });
     },
     shareWithDB(req,res){
         console.log('Halo');
