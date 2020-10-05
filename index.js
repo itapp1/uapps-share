@@ -4,7 +4,6 @@ const app = express();
 
 const shareRouter = require('./src/routes/router-share');
 
-app.use('/assets',express.static(path.join(__dirname, 'src/assets')));
 app.set('views',path.join(__dirname,'src/views'));
 app.set('view engine','hbs');
 
