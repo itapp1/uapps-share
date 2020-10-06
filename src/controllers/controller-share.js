@@ -68,7 +68,7 @@ module.exports ={
 				console.error(err);
 				return;
 			}
-			var request = new Request(`SELECT [No_] ,[Description] ,[Description 2] FROM [${db}].[dbo].[${db}$Item] WHERE No_ = '${id}'` , (err, rowCount)=> {
+			var request = new Request(`SELECT [No_] as 'no' ,[Description] as 'desc' ,[Description 2] as 'desc2' FROM [${db}].[dbo].[${db}$Item] WHERE No_ = '${id}'` , (err, rowCount)=> {
                 if(err) throw err;
                 let data = rows[0];
                 res.render('share-with-db',{
@@ -76,7 +76,7 @@ module.exports ={
                     url: url,
                     urlRedirect : urlRedirect+id,
                     urlImage : urlImage+id+'[0].png',
-                    titleProduct : 'FOX Lem Banteng KW 1',
+                    titleProduct : data['desc']+' '+data['desc2'],
                     descriptionProduct : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
                 });
 				connection.release();
