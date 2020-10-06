@@ -74,7 +74,6 @@ module.exports ={
         connection.on('connect', function(err) {
             console.log("Connected");
             executeStatement();
-
         });
 
         var Request = require('tedious').Request;
@@ -82,8 +81,9 @@ module.exports ={
 
         function executeStatement() {
             request = new Request(`SELECT [No_] as 'no' ,[Description] as 'desc' ,[Description 2] as 'desc2' FROM [${db}].[dbo].[${db}$Item] WHERE No_ = '${id}'`, function(err) {
-            if (err) {
-                console.log(err);} 
+                if (err) {
+                    console.log(err);
+                }
             });
             var result = "";
             request.on('row', function(columns) {
@@ -98,9 +98,9 @@ module.exports ={
                 result ="";
             });
 
-            request.on('done', function(rowCount, more) {
-            console.log(rowCount + ' rows returned');
-            });
+            // request.on('done', function(rowCount, more) {
+            //     console.log(rowCount + ' rows returned');
+            // });
             connection.execSql(request);
         }
 
