@@ -61,39 +61,6 @@ module.exports ={
         });
     },
     shareWithDB(req,res){
-        // let db = 'SENTRALTUKANG';
-        // let id = req.params.id;
-		// let rows = [];
-
-		// pool.acquire((err, connection)=> {
-		// 	if (err) {
-		// 		console.error(err);
-		// 		return;
-		// 	}
-		// 	var request = new Request(`SELECT [No_] as 'no' ,[Description] as 'desc' ,[Description 2] as 'desc2' FROM [${db}].[dbo].[${db}$Item] WHERE No_ = '${id}'` , (err, rowCount)=> {
-        //         if(err) throw err;
-        //         let data = rows[0];
-        //         res.render('share-with-db',{
-        //             textDisplay: 'Please wait ...',
-        //             url: url,
-        //             urlRedirect : urlRedirect+id,
-        //             urlImage : urlImage+id+'[0].png',
-        //             titleProduct : data['desc']+' '+data['desc2'],
-        //             descriptionProduct : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-        //         });
-		// 		connection.release();
-		// 	});
-
-		// 	request.on('row', (columns)=> {
-		// 		var row = {};
-		// 		columns.forEach((column)=> {
-		// 			row[column['metadata']['colName']] = column['value'];
-		// 		});
-		// 		rows.push(row);
-		// 	});
-		// 	connection.execSql(request);
-        // });
-        
         let db = 'SENTRALTUKANG';
         let id = req.params.id;
 		let rows = [];
@@ -103,20 +70,17 @@ module.exports ={
 				console.error(err);
 				return;
 			}
-			var request = new Request(`SELECT [No_] as 'no' ,[Description] as 'desc' ,[Description 2] as 'desc2' FROM [${db}].[dbo].[${db}$Item] WHERE No_ = '${id}'`
-            , (err, rowCount)=> {
-				if (err) {
-					console.error(err);
-					return res.status(400).send({
-						success: false,
-						message: err
-					});	
-				}
-					res.status(200).send({
-					success: true,
-					payment: rows,
-					message: "Successful"
-				});
+			var request = new Request(`SELECT [No_] as 'no' ,[Description] as 'desc' ,[Description 2] as 'desc2' FROM [${db}].[dbo].[${db}$Item] WHERE No_ = '${id}'` , (err, rowCount)=> {
+                if(err) throw err;
+                let data = rows[0];
+                res.render('share-with-db',{
+                    textDisplay: 'Please wait ...',
+                    url: url,
+                    urlRedirect : urlRedirect+id,
+                    urlImage : urlImage+id+'[0].png',
+                    titleProduct : data['desc']+' '+data['desc2'],
+                    descriptionProduct : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry`s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+                });
 				connection.release();
 			});
 
@@ -128,6 +92,6 @@ module.exports ={
 				rows.push(row);
 			});
 			connection.execSql(request);
-		});
+        });
     }
 }

@@ -4,6 +4,10 @@ const app = express();
 
 const shareRouter = require('./src/routes/router-share');
 
+app.get('/',(req,res)=>{
+    res.send('Versi : 1.36 --AWS');
+});
+
 app.set('views',path.join(__dirname,'src/views'));
 app.set('view engine','hbs');
 
