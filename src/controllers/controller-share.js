@@ -69,8 +69,8 @@ module.exports ={
 				return;
 			}
 			var request = new Request(`SELECT [No_] ,[Description] ,[Description 2] FROM [${db}].[dbo].[${db}$Item] WHERE No_ = '${id}'` , (err, rowCount)=> {
-                if(err) throw err; 
-                console.log(rows)
+                if(err) throw err;
+                let data = rows[0];
                 res.render('share-with-db',{
                     textDisplay: 'Please wait ...',
                     url: url,
