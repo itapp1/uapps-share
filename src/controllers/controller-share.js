@@ -32,6 +32,7 @@ if (NODE_ENV === 'production') {
 
 SQL_SERVER = {
     userName: USER_SERVER,
+    user: USER_SERVER,
     password: PASSWORD_SERVER,
     server: SQL_DATABASE_SERVER
 }
