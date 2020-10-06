@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uapps Share</title>
+    {{!-- <meta http-equiv = "refresh" content = "0; url = {{urlRedirect}}" /> --}}
+    {{!-- Meta SEO --}}
+    <link rel="canonical" href = "{{urlRedirect}}">
+    <meta name="title" content="{{titleProduct}}" />
+    <meta name="description" content="{{descriptionProduct}}" />
+
+    <meta name="og:title" content="{{titleProduct}}" />
+    <meta name="og:description" content="{{descriptionProduct}}" />
+    <meta name="og:type" content="content" />
+    <meta name="og:locale" content="id_ID" />
+    <meta name="og:locale:alternate" content="ms_MY" />
+    <meta name="og:image" itemprop="image" content="{{urlImage}}" />
+    <meta name="og:site_name" content="{{urlRedirect}}" />
+    <meta name="og:url" content="{{urlRedirect}}" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image" content="{{urlImage}}" />
+    <meta name="twitter:creator" content="ITAPP" />
+    <meta name="twitter:description" content="{{descriptionProduct}}" />
+    <meta name="twitter:title" content="{{titleProduct}}" />
+    {{!-- End --}}
+    <style>
+        body {
+            background-color: #F1F1F1;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        p {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        div {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>{{textDisplay}}</p>
+    </div>
+</body>
+</html>
